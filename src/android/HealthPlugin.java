@@ -547,7 +547,7 @@ public class HealthPlugin extends CordovaPlugin {
 
         GoogleApiClient.Builder builder = new GoogleApiClient.Builder(this.cordova.getActivity());
         builder.addApi(Fitness.HISTORY_API);
-        // builder.addApi(Fitness.CONFIG_API);
+        builder.addApi(Fitness.CONFIG_API);
         // builder.addApi(Fitness.SESSIONS_API);
         // scopes: https://developers.google.com/android/reference/com/google/android/gms/common/Scopes.html
         if (bodyscope == READ_PERMS) {
@@ -645,7 +645,7 @@ public class HealthPlugin extends CordovaPlugin {
 
         GoogleApiClient.Builder builder = new GoogleApiClient.Builder(this.cordova.getActivity().getApplicationContext());
         builder.addApi(Fitness.HISTORY_API);
-        // builder.addApi(Fitness.CONFIG_API);
+        builder.addApi(Fitness.CONFIG_API);
         // builder.addApi(Fitness.SESSIONS_API);
 
         mClient = builder.build();
