@@ -1,6 +1,12 @@
 # Changes by me
 Since I use the plugin to only get daily step count I've removed location permissions from android 
 
+install in ionic with command
+
+```sh
+ionic cordova plugin add https://github.com/stvdbac/cordova-plugin-health.git
+npm install @ionic-native/health
+```
 # Cordova Health Plugin
 
 A plugin that abstracts fitness and health repositories like Apple HealthKit or Google Fit.
