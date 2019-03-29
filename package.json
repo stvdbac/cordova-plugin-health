@@ -5,11 +5,11 @@
   "description": "A plugin that abstracts fitness and health repositories like Apple HealthKit or Google Fit",
   "license": "MIT",
   "author": "Dario Salvi",
-  "homepage": "https://github.com/dariosalvi78/cordova-plugin-health",
-  "repo": "https://github.com/dariosalvi78/cordova-plugin-health.git",
+  "homepage": "https://github.com/stvdbac/cordova-plugin-health",
+  "repo": "https://github.com/stvdbac/cordova-plugin-health.git",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dariosalvi78/cordova-plugin-health.git"
+    "url": "https://github.com/stvdbac/cordova-plugin-health.git"
   },
   "bugs": {
     "url": "https://github.com/dariosalvi78/cordova-plugin-health/issues"

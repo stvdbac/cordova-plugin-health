@@ -15,7 +15,7 @@
 
   <keywords>Health, HealthKit, Fit, Fitness, Google Fit</keywords>
 
-  <repo>https://github.com/dariosalvi78/cordova-plugin-health.git</repo>
+  <repo>https://github.com/stvdbac/cordova-plugin-health</repo>
 
   <issue>https://github.com/dariosalvi78/cordova-plugin-health/issues</issue>
 
@@ -81,11 +81,11 @@
     <framework src="com.google.android.gms:play-services-fitness:$GMS_VERSION" />
     <preference name="GMS_VERSION" default="16.0.1"/>
 
-    <config-file target="AndroidManifest.xml" parent="/*">
+    <!-- <config-file target="AndroidManifest.xml" parent="/*">
       <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
       <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
       <uses-permission android:name="android.permission.BODY_SENSORS" />
-    </config-file>
+    </config-file> -->
 
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="health">

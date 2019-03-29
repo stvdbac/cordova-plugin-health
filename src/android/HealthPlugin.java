@@ -540,15 +540,15 @@ public class HealthPlugin extends CordovaPlugin {
         }
 
         dynPerms.clear();
-        if (locationscope == READ_PERMS || locationscope == READ_WRITE_PERMS || activityscope == READ_PERMS || activityscope == READ_WRITE_PERMS) //activity requires access to location to report distace
-            dynPerms.add(Manifest.permission.ACCESS_FINE_LOCATION);
-        if (bodyscope == READ_PERMS || bodyscope == READ_WRITE_PERMS)
-            dynPerms.add(Manifest.permission.BODY_SENSORS);
+        // if (locationscope == READ_PERMS || locationscope == READ_WRITE_PERMS || activityscope == READ_PERMS || activityscope == READ_WRITE_PERMS) //activity requires access to location to report distace
+        //     dynPerms.add(Manifest.permission.ACCESS_FINE_LOCATION);
+        // if (bodyscope == READ_PERMS || bodyscope == READ_WRITE_PERMS)
+        //     dynPerms.add(Manifest.permission.BODY_SENSORS);
 
         GoogleApiClient.Builder builder = new GoogleApiClient.Builder(this.cordova.getActivity());
         builder.addApi(Fitness.HISTORY_API);
-        builder.addApi(Fitness.CONFIG_API);
-        builder.addApi(Fitness.SESSIONS_API);
+        // builder.addApi(Fitness.CONFIG_API);
+        // builder.addApi(Fitness.SESSIONS_API);
         // scopes: https://developers.google.com/android/reference/com/google/android/gms/common/Scopes.html
         if (bodyscope == READ_PERMS) {
             builder.addScope(new Scope(Scopes.FITNESS_BODY_READ));
@@ -563,7 +563,7 @@ public class HealthPlugin extends CordovaPlugin {
         if (locationscope == READ_WRITE_PERMS) { //specifially request read write permission for location.
             builder.addScope(new Scope(Scopes.FITNESS_LOCATION_READ_WRITE));
         } else if (locationscope == READ_PERMS || activityscope == READ_PERMS || activityscope == READ_WRITE_PERMS) { // if read permission request for location or any read/write permissions for activities were requested then give read location
-            builder.addScope(new Scope(Scopes.FITNESS_LOCATION_READ));
+           // builder.addScope(new Scope(Scopes.FITNESS_LOCATION_READ));
         }
         if (nutritionscope == READ_PERMS) {
             builder.addScope(new Scope(Scopes.FITNESS_NUTRITION_READ));
@@ -645,8 +645,8 @@ public class HealthPlugin extends CordovaPlugin {
 
         GoogleApiClient.Builder builder = new GoogleApiClient.Builder(this.cordova.getActivity().getApplicationContext());
         builder.addApi(Fitness.HISTORY_API);
-        builder.addApi(Fitness.CONFIG_API);
-        builder.addApi(Fitness.SESSIONS_API);
+        // builder.addApi(Fitness.CONFIG_API);
+        // builder.addApi(Fitness.SESSIONS_API);
 
         mClient = builder.build();
         mClient.blockingConnect();

@@ -1,5 +1,7 @@
-# Cordova Health Plugin
+# Changes by me
+Since I use the plugin to only get daily step count I've removed location permissions from android 
 
+# Cordova Health Plugin
 
 A plugin that abstracts fitness and health repositories like Apple HealthKit or Google Fit.
 
