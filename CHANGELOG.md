@@ -30,3 +30,9 @@ Log of changes
 ### v1.1.2
 
 * minor bugfix
+
+
+### v1.1.3
+
+* some bugfixes
+* Google services version locked to specific version but changeable

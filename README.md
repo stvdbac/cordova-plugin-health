@@ -89,7 +89,7 @@ This is known to happen when using the Ionic Package cloud service.
 * If you haven't configured the APIs correctly, particularly the OAuth requirements, you are likely to get 'User cancelled the dialog' as an error message, particularly this can happen if you mismatch the signing certificate and SHA-1 fingerprint.
 * You can use the Google Fitness API even if the user doesn't have Google Fit installed, but there has to be some other fitness app putting data into the Fitness API otherwise your queries will always be empty. See the [the original documentation](https://developers.google.com/fit/overview).
 * If you are planning to use [health data types](https://developers.google.com/android/reference/com/google/android/gms/fitness/data/HealthDataTypes) in Google Fit, be aware that you are always able to read them, but if you want write access [you need to ask permission to Google](https://developers.google.com/fit/android/data-types#restricted_data_types)
-* You can change which google services version this plugin uses by setting the `GMS_VERSION` variable in `config.xml`. By default it will use the version `16.0.1`. From version 15 [you don't have to use the same google services version](https://developers.google.com/android/guides/versioning) accross all your cordova plugins. You can track google services releases [here](https://developers.google.com/android/guides/releases). 
+* You can change which google services version this plugin uses by setting the `GMS_VERSION` variable in `config.xml`. By default it will use the version `16.0.1`. From version 15 [you don't have to use the same google services version](https://developers.google.com/android/guides/versioning) accross all your cordova plugins. You can track google services releases [here](https://developers.google.com/android/guides/releases).
 
 ## Supported data types
 
@@ -147,6 +147,7 @@ Returned objects contain a set of fixed fields:
 - sourceName: {type: String} the name of the app that produced the data (as it appears to the user)
 - unit: {type: String} the unit of measurement
 - value: the actual value
+- id: (only on iOS) the unique identifier of that measurement
 
 Example values:
 
@@ -235,7 +236,7 @@ navigator.health.requestAuthorization(datatypes, successCallback, errorCallback)
 
 #### iOS quirks
 
-- Once the suer has allowed (or not allowed) the app, this function will not promt the user again, but will call the callback immediately. See [this](https://developer.apple.com/documentation/healthkit/hkhealthstore/1614152-requestauthorization) for further explanation.
+- Once the user has allowed (or not allowed) the app, this function will not prompt the user again, but will call the callback immediately. See [this](https://developer.apple.com/documentation/healthkit/hkhealthstore/1614152-requestauthorization) for further explanation.
 - The datatype `activity` also includes sleep. If you want to get authorization only for workouts, you can specify `workouts` as datatype, but be aware that this is only availabe in iOS.
 
 ### isAuthorized()

@@ -215,6 +215,7 @@ Health.prototype.query = function (opts, onSuccess, onError) {
       var result = [];
       for (var i = 0; i < data.length; i++) {
         var res = {};
+        res.id = data[i].UUID
         res.startDate = new Date(data[i].startDate);
         res.endDate = new Date(data[i].endDate);
         // filter the results based on the dates
@@ -234,6 +235,7 @@ Health.prototype.query = function (opts, onSuccess, onError) {
         window.plugins.healthkit.querySampleType(opts, function (data) {
           for (var i = 0; i < data.length; i++) {
             var res = {};
+            res.id = data[i].UUID
             res.startDate = new Date(data[i].startDate);
             res.endDate = new Date(data[i].endDate);
             if (data[i].value == 0) res.value = 'sleep.inBed';
@@ -275,6 +277,7 @@ Health.prototype.query = function (opts, onSuccess, onError) {
       var convertSamples = function (samples) {
         for (var i = 0; i < samples.length; i++) {
           var res = {};
+          res.id = samples[i].UUID
           res.startDate = new Date(samples[i].startDate);
           res.endDate = new Date(samples[i].endDate);
           if (opts.dataType === 'blood_glucose') {
@@ -300,7 +303,7 @@ Health.prototype.query = function (opts, onSuccess, onError) {
           } else {
             res.value = samples[i].quantity;
           }
-          if (data[i].unit) res.unit = samples[i].unit;
+          if (samples[i].unit) res.unit = samples[i].unit;
           else if (opts.unit) res.unit = opts.unit;
           res.sourceName = samples[i].sourceName;
           res.sourceBundleId = samples[i].sourceBundleId;
@@ -608,6 +611,7 @@ var convertToGrams = function (fromUnit, q) {
 // refactors the result of a quantity type query into returned type
 var prepareResult = function (data, unit) {
   var res = {
+    id: data.UUID,
     startDate: new Date(data.startDate),
     endDate: new Date(data.endDate),
     value: data.quantity,
@@ -621,6 +625,7 @@ var prepareResult = function (data, unit) {
 // refactors the result of a correlation query into returned type
 var prepareCorrelation = function (data, dataType) {
   var res = {
+    id: data.UUID,
     startDate: new Date(data.startDate),
     endDate: new Date(data.endDate),
     value: {}
